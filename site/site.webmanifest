@@ -1,0 +1,12 @@
+{
+  "name": "TourGaze",
+  "short_name": "TourGaze",
+  "description": "A local-first ride viewer — import, replay and analyze your tours on your own machine.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f17",
+  "theme_color": "#4f8cff",
+  "icons": [
+    { "src": "goat.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" }
+  ]
+}

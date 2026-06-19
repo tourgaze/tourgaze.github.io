@@ -1,0 +1,13 @@
+{
+  "name": "tourgaze-landingpage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for TourGaze — a local-first ride viewer. Static site, zero dependencies.",
+  "homepage": "https://tourgaze.github.io",
+  "scripts": {
+    "serve": "node server.js",
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "license": "AGPL-3.0-or-later"
+}

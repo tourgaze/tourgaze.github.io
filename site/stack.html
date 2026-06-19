@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TourGaze — Tech &amp; developer</title>
+  <meta name="description" content="The TourGaze tech stack: a real Spring Boot backend with an OpenAPI REST API, a typed Vue frontend, and a two-command local dev setup.">
+  <link rel="icon" href="goat.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0b0f17">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">
+        <img src="goat.svg" width="28" height="28" alt="">
+        TourGaze
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#local">Local-first</a></li>
+        <li><a href="stack.html" aria-current="page">Tech &amp; dev</a></li>
+      </ul>
+      <a class="nav-cta" href="https://github.com/tourgaze/tourgaze" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <h1>A real backend, ready for automation.</h1>
+      <p class="lead">
+        TourGaze is a proper Spring Boot service for visualizing GPX tracks, paired with a Vue frontend and an OpenAPI-documented REST API you can script against.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://github.com/tourgaze/tourgaze" target="_blank" rel="noopener">⛰ View on GitHub</a>
+        <a class="btn btn-ghost" href="index.html">← Back to overview</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="stack">
+    <div class="wrap">
+      <span class="eyebrow">Under the hood</span>
+      <h2 class="sec">The stack</h2>
+      <p class="sub">Mature, boring-where-it-counts tools — typed across the boundary by a generated OpenAPI client.</p>
+
+      <div class="stack-group reveal">
+        <h3>Backend <span class="tag">Java 21 · Spring Boot 3</span></h3>
+        <div class="pills">
+          <span class="stack-card">Spring Boot 3</span><span class="stack-card">Java 21</span>
+          <span class="stack-card">H2 (embedded file DB)</span><span class="stack-card">Flyway</span>
+          <span class="stack-card">MapStruct</span><span class="stack-card">springdoc-openapi</span>
+          <span class="stack-card">GeographicLib</span><span class="stack-card">Garmin FIT SDK</span>
+          <span class="stack-card">jpx (GPX)</span><span class="stack-card">metadata-extractor</span>
+          <span class="stack-card">commons-imaging</span><span class="stack-card">Caffeine</span>
+        </div>
+      </div>
+
+      <div class="stack-group reveal">
+        <h3>Frontend <span class="tag">Vue 3 · TypeScript</span></h3>
+        <div class="pills">
+          <span class="stack-card">Vue 3</span><span class="stack-card">Vite</span>
+          <span class="stack-card">TypeScript</span><span class="stack-card">TanStack Query</span>
+          <span class="stack-card">MapLibre GL</span><span class="stack-card">ECharts</span>
+          <span class="stack-card">Tailwind</span><span class="stack-card">openapi-typescript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="api">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">REST API</span>
+          <h2 class="sec">Scriptable by design</h2>
+          <p class="sub">Every screen talks to the same documented REST API — so anything the app can do, your scripts can do too.</p>
+          <ul class="checks">
+            <li>OpenAPI spec served at <code>/v3/api-docs</code></li>
+            <li>Frontend types are generated from that spec — no drift</li>
+            <li>Automate imports, tagging, backups and exports from the CLI</li>
+            <li>Runs locally on <code>:8085</code> — no keys, no cloud round-trip</li>
+          </ul>
+        </div>
+        <div class="panel reveal">
+          <ul class="checks" style="gap:14px">
+            <li><strong>DTOs at the boundary.</strong>&nbsp;Clean wire shapes, never raw entities.</li>
+            <li><strong>Provider-based parsers.</strong>&nbsp;Add a format without touching the rest.</li>
+            <li><strong>Flyway-owned schema.</strong>&nbsp;Migrations in, surprises out.</li>
+            <li><strong>Single small service.</strong>&nbsp;One process, one file database.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="wrap">
+      <span class="eyebrow">Quick start</span>
+      <h2 class="sec">Up and running in two commands</h2>
+      <p class="sub">You'll need JDK 21+ and Node 20+. The Vite dev server proxies <code>/api</code> to the backend.</p>
+      <div class="codeblock reveal">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <button class="copy" type="button">Copy</button>
+        <pre><span class="c"># 1 — clone</span>
+git clone https://github.com/tourgaze/tourgaze.git
+cd tourgaze
+
+<span class="c"># 2 — backend</span>
+cd server   && mvn spring-boot:run        <span class="c"># http://localhost:8085</span>
+
+<span class="c"># 3 — frontend (new terminal)</span>
+cd frontend && npm install && npm run dev  <span class="g"># http://localhost:5173</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span class="brand"><img src="goat.svg" width="22" height="22" alt="">TourGaze</span>
+      <span class="foot-links">
+        <a href="index.html">Overview</a> · <a href="index.html#features">Features</a> ·
+        <a href="https://github.com/tourgaze/tourgaze" target="_blank" rel="noopener">GitHub</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
