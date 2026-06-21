@@ -100,18 +100,32 @@
     <div class="wrap">
       <span class="eyebrow">Quick start</span>
       <h2 class="sec">Up and running in two commands</h2>
-      <p class="sub">You'll need JDK 21+ and Node 20+. The Vite dev server proxies <code>/api</code> to the backend.</p>
+      <p class="sub">The quickest way is Docker — one image serves the API and the UI on
+        port 8085, with your library kept in a <code>/data</code> volume.</p>
       <div class="codeblock reveal">
         <div class="bar"><span></span><span></span><span></span></div>
         <button class="copy" type="button">Copy</button>
-        <pre><span class="c"># 1 — clone</span>
+        <pre><span class="c"># 1 — pull</span>
+docker pull mschwehl/tourgaze
+
+<span class="c"># 2 — run</span>
+docker run -d --name tourgaze -p 8085:8085 -v tourgaze-data:/data mschwehl/tourgaze
+<span class="g"># → open http://localhost:8085</span></pre>
+      </div>
+
+      <p class="sub" style="margin-top:28px">…or build from source (for development). Needs JDK 21+
+        and Node 20+; the Vite dev server proxies <code>/api</code> to the backend.</p>
+      <div class="codeblock reveal">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <button class="copy" type="button">Copy</button>
+        <pre><span class="c"># clone</span>
 git clone https://github.com/tourgaze/tourgaze.git
 cd tourgaze
 
-<span class="c"># 2 — backend</span>
+<span class="c"># backend</span>
 cd server   && mvn spring-boot:run        <span class="c"># http://localhost:8085</span>
 
-<span class="c"># 3 — frontend (new terminal)</span>
+<span class="c"># frontend (new terminal)</span>
 cd frontend && npm install && npm run dev  <span class="g"># http://localhost:5173</span></pre>
       </div>
     </div>

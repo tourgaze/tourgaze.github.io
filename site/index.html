@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TourGaze — your rides, beautifully local</title>
-  <meta name="description" content="A local-first ride viewer. Import FIT/GPX/TCX/KMZ, browse and tag your tours, replay them cinematically, and dig into elite stats — all on your own machine. Open source, no cloud.">
+  <title>TourGaze — replay your rides</title>
+  <meta name="description" content="A local-first ride viewer that keeps every ride. Import FIT/GPX/TCX/KMZ, browse and tag your tours, replay them cinematically, and dig into the stats — heart rate, power and cadence — all on your own machine. Open source, no cloud.">
   <link rel="icon" href="goat.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0b0f17">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="style.css">
-  <meta property="og:title" content="TourGaze — your rides, beautifully local">
-  <meta property="og:description" content="Local-first ride viewer: import, browse, tag, replay, and analyze your tours. Open source, no cloud.">
+  <meta property="og:title" content="TourGaze — replay your rides">
+  <meta property="og:description" content="Local-first ride viewer that keeps every ride: import, browse, tag, replay and analyze — heart rate, power, cadence. Open source, no cloud.">
   <meta property="og:type" content="website">
 </head>
 <body>
@@ -25,6 +25,7 @@
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
         <li><a href="#local">Local-first</a></li>
+        <li><a href="#support">Support OSM</a></li>
         <li><a href="stack.html">Tech &amp; dev</a></li>
       </ul>
       <a class="nav-cta" href="https://github.com/tourgaze/tourgaze" target="_blank" rel="noopener">GitHub →</a>
@@ -33,7 +34,7 @@
 
   <header class="hero" id="top">
     <div class="wrap">
-      <h1>Your rides, beautifully local.</h1>
+      <h1>Replay your rides!</h1>
 
       <!-- eye-catcher: a real ride on live 3D OpenStreetMap terrain -->
       <div class="app reveal">
@@ -105,16 +106,16 @@
       <p class="sub">From raw track file to a tour you actually want to revisit.</p>
       <div class="grid">
         <div class="feat-card reveal"><div class="ico">📥</div><h3>Import anything</h3><p>FIT, GPX, TCX and KMZ from Garmin, OpenTracks and more — auto-detected and parsed, no conversion dance.</p></div>
-        <div class="feat-card reveal"><div class="ico">📨</div><h3>Smart inbox</h3><p>New tracks land in an inbox with pre-filled proposals — activity type and best-match gear guessed from your history. File a ride in one click.</p></div>
+        <div class="feat-card reveal"><div class="ico">📨</div><h3>Smart inbox</h3><p>New tracks land in an inbox that fills in live — activity type, best-match gear, and reverse-geocoded place, region &amp; country tags, guessed from your history. Watch-folders are labelled so you know where each ride came from. File it in one click.</p></div>
         <div class="feat-card reveal"><div class="ico">🗂️</div><h3>Browse &amp; filter</h3><p>A JIRA-style search mini-language, transitive tags, saved filter presets and faceted browsing across every tour.</p></div>
         <div class="feat-card reveal"><div class="ico">🎬</div><h3>Cinematic replay</h3><p>Smooth 3D fly-through of your route on MapLibre, with prefetched tiles so playback never stutters.</p></div>
-        <div class="feat-card reveal"><div class="ico">📊</div><h3>Elite stats</h3><p>Heart-rate zones, power and pace curves, climbs and gradients — the numbers serious riders look for.</p></div>
+        <div class="feat-card reveal"><div class="ico">📊</div><h3>Ride stats</h3><p>Heart-rate zones, measured power &amp; cadence, pace and gradient curves, climbs, VAM and training load — plus a body-weight trend from your ride history.</p></div>
         <div class="feat-card reveal"><div class="ico">👻</div><h3>Ghost-chase compare</h3><p>Match the same loop by tag or GPS fingerprint and race two rides head-to-head, Mario-Kart style.</p></div>
         <div class="feat-card reveal"><div class="ico">📍</div><h3>Markers</h3><p>A filterable marker table — click to jump on the map, with public and private categories you control.</p></div>
         <div class="feat-card reveal"><div class="ico">📷</div><h3>Photos &amp; discovery</h3><p>Attach your own photos and surface nearby public ones from Wikimedia, labelled and cached.</p></div>
         <div class="feat-card reveal"><div class="ico">🗺️</div><h3>Custom basemaps</h3><p>Bring your own tile providers and switch styles per view — your maps, your way.</p></div>
         <div class="feat-card reveal"><div class="ico">💾</div><h3>Backup &amp; restore</h3><p>One-click backup of your whole library to a single archive — rides, tags, photos and settings — and restore it anywhere.</p></div>
-        <div class="feat-card reveal"><div class="ico">🔒</div><h3>Optional encryption</h3><p>Turn on AES-GCM encryption at rest for stored data. Off by default — flip the <code>crypto.enabled</code> setting when you want it.</p></div>
+        <div class="feat-card reveal"><div class="ico">🏔️</div><h3>Auto landmarks</h3><p>Mountain passes you crossed and named peaks near your route, detected from OpenStreetMap and pinned on the map — no tagging by hand.</p></div>
         <div class="feat-card reveal"><div class="ico">🪶</div><h3>Tiny &amp; fast</h3><p>One small embedded file database, one service, no external dependencies — boots in seconds and stays out of your way.</p></div>
       </div>
     </div>
@@ -130,7 +131,7 @@
           <ul class="checks">
             <li>Runs entirely on <code>localhost</code> — backend on :8085, UI on :5173</li>
             <li>Rides stored in a portable file database under <code>~/.tourgaze/</code></li>
-            <li>Optional, off-by-default encryption for stored data</li>
+            <li>Sync-friendly: keep the repository folder in Dropbox or Drive — everything else stays local</li>
           </ul>
         </div>
         <div class="panel reveal">
@@ -145,11 +146,17 @@
     </div>
   </section>
 
-  <section id="more">
+  <section id="support">
     <div class="wrap">
+      <span class="eyebrow">Support the maps</span>
+      <h2 class="sec">Powered by OpenStreetMap</h2>
+      <p class="sub">TourGaze draws its maps from OpenStreetMap's free tiles and geocodes
+        places with Nominatim — both run by the non-profit OpenStreetMap Foundation,
+        funded entirely by donations. TourGaze charges nothing and takes no cut; if it's
+        useful to you, please help keep those services running for everyone.</p>
       <div class="cta">
-        <a class="btn btn-ghost" href="stack.html">Tech &amp; dev →</a>
-        <a class="btn btn-primary" href="https://github.com/tourgaze/tourgaze" target="_blank" rel="noopener">⛰ Get it on GitHub</a>
+        <a class="btn btn-primary" href="https://donate.openstreetmap.org/" target="_blank" rel="noopener">♥ Donate to OpenStreetMap</a>
+        <a class="btn btn-ghost" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">Map data © OSM contributors</a>
       </div>
     </div>
   </section>
@@ -158,9 +165,13 @@
     <div class="wrap">
       <span class="brand"><img src="goat.svg" width="22" height="22" alt="">TourGaze</span>
       <span class="foot-links">
-        <a href="#features">Features</a> · <a href="stack.html">Tech &amp; dev</a> ·
-        <a href="https://github.com/tourgaze/tourgaze" target="_blank" rel="noopener">GitHub</a>
+        <a href="#features">Features</a> ·
+        <a href="#support">Support OSM</a>
       </span>
+      <div class="cta">
+        <a class="btn btn-ghost" href="stack.html">Tech &amp; dev →</a>
+        <a class="btn btn-primary" href="https://github.com/tourgaze/tourgaze" target="_blank" rel="noopener">⛰ Get it on GitHub</a>
+      </div>
     </div>
   </footer>
 
