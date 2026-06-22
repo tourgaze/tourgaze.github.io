@@ -135,6 +135,24 @@ ul.checks li::before { content: "✓"; color: var(--accent); font-weight: 800; }
 .rider .rdot { width: 13px; height: 13px; border-radius: 50%; background: var(--rc); border: 2px solid #fff;
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--rc) 35%, transparent), 0 2px 6px rgba(0,0,0,.4); }
 
+/* Rain event on the demo route — a cloud pin + a downpour overlay that fades in
+   as a rider passes it (same touch as the app's WEATHER_RAIN replay effect). */
+.demo-cloud { font-size: 22px; line-height: 1; pointer-events: none;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.55)); animation: cloud-bob 2.4s ease-in-out infinite; }
+@keyframes cloud-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+.demo-rain { position: absolute; inset: 0; z-index: 4; pointer-events: none; overflow: hidden;
+  opacity: 0; transition: opacity .5s ease; background: rgba(120,150,190,.10); }
+.demo-rain.raining { opacity: 1; }
+.demo-rain::before, .demo-rain::after { content: ''; position: absolute; inset: -30% -10%; background-repeat: repeat; }
+.demo-rain::before { background-image: repeating-linear-gradient(104deg,
+  transparent 0 6px, rgba(200,215,240,.55) 6px 7px, transparent 7px 13px); animation: demo-rainfall .5s linear infinite; }
+.demo-rain::after { background-image: repeating-linear-gradient(101deg,
+  transparent 0 9px, rgba(180,200,230,.40) 9px 10px, transparent 10px 22px); animation: demo-rainfall .85s linear infinite; opacity: .8; }
+@keyframes demo-rainfall { to { transform: translateY(34vh); } }
+@media (prefers-reduced-motion: reduce) {
+  .demo-cloud, .demo-rain::before, .demo-rain::after { animation: none; }
+}
+
 .demo-cap { color: var(--muted); font-size: 13.5px; margin: 16px auto 0; max-width: 640px; }
 .demo-cap b { color: var(--fg); }
 

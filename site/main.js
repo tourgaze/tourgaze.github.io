@@ -126,6 +126,13 @@
   var fMike = 0, fPetra = 0.16;          // start offsets (Petra a touch ahead)
   var SPD_M = 1 / 21000, SPD_P = 1 / 25000; // fraction per ms → ~21s / ~25s per lap
 
+  // A rain "event" parked on the route: as a rider passes it, the map rains —
+  // the same touch as the app (a WEATHER_RAIN event detected on import).
+  var RAIN_F = 0.55;          // where along the route the shower sits
+  var RAIN_NEAR = 0.045;      // how close (in route-fraction) counts as "passing"
+  var rainEl = null;          // overlay, created on map load
+  function nearRain(f) { var d = Math.abs(f - RAIN_F); return Math.min(d, 1 - d) < RAIN_NEAR; }
+
   // single in-view animation loop: moves the riders, and orbits until the user grabs the map
   var running = false, raf = 0, last = 0, userTook = false;
   function frame(ts) {
@@ -137,6 +144,7 @@
     fPetra = (fPetra + SPD_P * dt) % 1;
     mike.setLngLat(posAt(fMike));
     petra.setLngLat(posAt(fPetra));
+    if (rainEl) rainEl.classList.toggle('raining', nearRain(fMike) || nearRain(fPetra));
     raf = requestAnimationFrame(frame);
   }
   // honor reduced-motion: keep the static 3D view + parked riders, no orbit/movement
@@ -152,6 +160,16 @@
     new maplibregl.Marker({ color: '#ff5f57' }).setLngLat(coords[coords.length - 1]).addTo(map);
     mike.setLngLat(posAt(fMike)).addTo(map);
     petra.setLngLat(posAt(fPetra)).addTo(map);
+
+    // Rain event: a cloud pinned on the route + a rain overlay over the map.
+    var cloudEl = document.createElement('div');
+    cloudEl.className = 'demo-cloud';
+    cloudEl.textContent = '🌧️';
+    cloudEl.title = 'Rain shower';
+    new maplibregl.Marker({ element: cloudEl, anchor: 'center' }).setLngLat(posAt(RAIN_F)).addTo(map);
+    rainEl = document.createElement('div');
+    rainEl.className = 'demo-rain';
+    mapEl.appendChild(rainEl);
 
     var b = coords.reduce(function (bb, c) { return bb.extend(c); }, new maplibregl.LngLatBounds(coords[0], coords[0]));
     var cam = map.cameraForBounds(b, { padding: { top: 50, bottom: 90, left: 50, right: 50 } });
