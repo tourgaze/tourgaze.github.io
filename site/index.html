@@ -5,14 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TourGaze — replay your rides</title>
   <meta name="description" content="A local-first ride viewer that keeps every ride. Import FIT/GPX/TCX/KMZ, browse and tag your tours, replay them cinematically with auto-detected rain and ride events, and dig into the stats — heart rate, power and cadence — all on your own machine. Open source, no cloud.">
+  <meta name="keywords" content="self-hosted ride viewer, GPS track replay, FIT GPX viewer, self-hosted Strava alternative, ghost chase ride compare, cycling replay, local-first, OpenStreetMap, open source">
+  <meta name="author" content="TourGaze">
+  <link rel="canonical" href="https://tourgaze.github.io/">
   <link rel="icon" href="goat.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0b0f17">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Open Graph (Reddit / Facebook / Slack / Discord link previews) -->
+  <meta property="og:site_name" content="TourGaze">
   <meta property="og:title" content="TourGaze — replay your rides">
   <meta property="og:description" content="Local-first ride viewer that keeps every ride: import, browse, tag, replay (with rain &amp; ride events) and analyze — heart rate, power, cadence. Open source, no cloud.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tourgaze.github.io/">
+  <meta property="og:image" content="https://tourgaze.github.io/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="824">
+  <meta property="og:image:alt" content="TourGaze ghost-chase compare — racing a ride against your past self on the same route, with a live distance and heart-rate gap.">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TourGaze — replay your rides">
+  <meta name="twitter:description" content="Local-first ride viewer that keeps every ride: import, browse, tag, replay (with rain &amp; ride events) and analyze — heart rate, power, cadence. Open source, no cloud.">
+  <meta name="twitter:image" content="https://tourgaze.github.io/og-cover.jpg">
+
+  <!-- Structured data: helps Google classify TourGaze as an application -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TourGaze",
+    "url": "https://tourgaze.github.io/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Linux, macOS, Windows (Docker)",
+    "description": "A local-first, self-hosted ride viewer. Import FIT/GPX/TCX/KMZ tracks, browse and tag your tours, replay them with a cinematic drone/helicopter camera, race your past self (ghost-chase), and analyze heart rate, power and cadence — all on your own machine.",
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "image": "https://tourgaze.github.io/og-cover.jpg",
+    "softwareHelp": "https://github.com/tourgaze/tourgaze",
+    "codeRepository": "https://github.com/tourgaze/tourgaze",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
 
